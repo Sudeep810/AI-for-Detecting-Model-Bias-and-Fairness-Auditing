@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}System Architecture — AI Fairness Auditing{% endblock %}
+{% block content %}
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="/">Home</a><span>/</span>Architecture</div>
+  <h1>System Architecture</h1>
+  <p>End-to-end design of the AI Bias Detection &amp; Fairness Auditing System.</p>
+</div>
+
+<section>
+  <div class="section-center">
+    <div class="section-header">
+      <span class="section-tag">Design</span>
+      <h2>System Layers</h2>
+      <div class="accent-line"></div>
+    </div>
+    <div class="arch-grid">
+      <div class="arch-layer arch-1">
+        <h3>📂 Data Sources</h3>
+        <ul>
+          <li>Adult Income Dataset (UCI)</li>
+          <li>COMPAS Dataset (Kaggle)</li>
+          <li>German Credit Dataset</li>
+          <li>Custom CSV Upload</li>
+        </ul>
+      </div>
+      <div class="arch-layer arch-2">
+        <h3>🧹 Data Management</h3>
+        <ul>
+          <li>Data Ingestion &amp; Parsing</li>
+          <li>Missing Value Handling</li>
+          <li>Feature Encoding</li>
+          <li>Train / Test Split</li>
+        </ul>
+      </div>
+      <div class="arch-layer arch-3">
+        <h3>🤖 Model Training</h3>
+        <ul>
+          <li>Logistic Regression</li>
+          <li>Random Forest Classifier</li>
+          <li>Cross-Validation</li>
+          <li>Accuracy Metrics</li>
+        </ul>
+      </div>
+      <div class="arch-layer arch-4">
+        <h3>🔍 Bias Detection</h3>
+        <ul>
+          <li>Sensitive Attribute Detection</li>
+          <li>Demographic Parity</li>
+          <li>Equalized Odds</li>
+          <li>Disparate Impact Ratio</li>
+        </ul>
+      </div>
+      <div class="arch-layer arch-5">
+        <h3>⚙️ Bias Mitigation</h3>
+        <ul>
+          <li>Reweighing (Pre-processing)</li>
+          <li>Adversarial Debiasing</li>
+          <li>Calibrated Equal Odds</li>
+          <li>Post-processing Thresholding</li>
+        </ul>
+      </div>
+      <div class="arch-layer arch-1" style="background:#1d5c6b;">
+        <h3>💡 Explainability</h3>
+        <ul>
+          <li>SHAP Feature Attribution</li>
+          <li>LIME Local Explanations</li>
+          <li>Group-Level Analysis</li>
+          <li>Individual Explanations</li>
+        </ul>
+      </div>
+      <div class="arch-layer arch-6" style="grid-column:span 3;">
+        <h3>📊 Output / Dashboard</h3>
+        <ul style="flex-direction:row;flex-wrap:wrap;gap:.5rem;">
+          <li>Fairness Score Summary</li>
+          <li>Interactive Charts</li>
+          <li>Group Comparison Tables</li>
+          <li>Mitigation Before/After Report</li>
+          <li>SHAP Plots</li>
+          <li>Downloadable Audit Report</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Flow diagram -->
+    <div style="margin-top:3rem;background:var(--white);border-radius:14px;padding:2rem;box-shadow:var(--card-shadow);">
+      <h3 style="color:var(--navy);margin-bottom:1.5rem;text-align:center;">Data Flow</h3>
+      <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.5rem;font-size:.9rem;">
+        {% for step in ["Raw Data","Preprocessing","Model Training","Bias Detection","Mitigation","Explainability","Dashboard"] %}
+        <div style="background:var(--navy);color:var(--white);padding:.5rem 1rem;border-radius:8px;font-weight:600;">{{step}}</div>
+        {% if not loop.last %}<span style="color:var(--teal);font-size:1.3rem;">→</span>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
