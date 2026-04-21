@@ -34,7 +34,7 @@ Fixes algorithmic discrimination in predictive models across protected attribute
 ## Getting Started
 
 ### Prerequisites
-* Python 3.9+
+* Python 
 * pip
 
 ### Installation
